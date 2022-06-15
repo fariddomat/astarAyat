@@ -1,0 +1,24 @@
+{% extends 'main/main.html' %}
+
+{% block content %}
+    
+    <div class="row">
+            <div class="col-md-6"> 
+                {% if data %}
+                <h2 class="bg-warning" style="padding:10px;border-radius:15px">
+                {{data|linebreaks}}
+                </h2>
+                {% endif %}
+                <form  method="POST" action="/">
+                    {% csrf_token %}
+                    {{mapData}}
+                    <button class="btn btn-warning" type="submit">SAVE</button>
+                </form>
+            </div>
+            <div class="col-md-6" style="margin-top: 75px;">
+                    <img src="static/index.png">
+            </div>
+
+    </div>
+
+{% endblock content %}
